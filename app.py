@@ -6,6 +6,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from pymongo import MongoClient
 from logging import basicConfig, INFO, FileHandler, StreamHandler, getLogger, ERROR
+from methods import algorithms
 
 if os.path.exists("log.txt"):
     with open("log.txt", "w"):
@@ -508,6 +509,8 @@ rawhtml = """<html>
 @app.get("/search")
 async def product_info(request: Request):
     query_params = str(request.url.query).split("q=")[1]
+    response_data = await algorithms(unquote(query_params))
+    return JSONResponse(content=response_data)
 
 
 @app.get("/")
