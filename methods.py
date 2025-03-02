@@ -92,7 +92,7 @@ def shell_sort(final_dict_all_info, all_info, text, arr):
 
 
 async def algorithms(name_of_product):
-    name_of_product = "pen"
+    #name_of_product = "pen"
     final_dict_all_info = {}
 
     start_time = time.time()
