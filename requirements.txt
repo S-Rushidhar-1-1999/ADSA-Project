@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+cloudscraper
+requests
+beautifulsoup4
+pymongo
+chromedriver_autoinstaller
+undetected-chromedriver
+webdriver-manager
+urllib3
