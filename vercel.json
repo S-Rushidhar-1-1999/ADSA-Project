@@ -1,5 +1,5 @@
 {
-    "name": "Stream",
+    "name": "ADSA-project",
     "version": 2,
     "builds": [{
         "src": "*.py",
