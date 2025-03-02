@@ -1,7 +1,6 @@
 import asyncio
 import time
 from scraper import flipkart
-import json
 
 # Async sorting functions (no change to sorting algorithms themselves)
 def final_dict(final_dict_all_info, all_info, text, arr):
@@ -123,4 +122,4 @@ async def algorithms(name_of_product):
     shell_sort(final_dict_all_info, all_info, text, data_copy)
     final_dict_all_info[text]["Time Taken For Shell Sort in seconds"] = time.time() - start_time
 
-    print(json.dumps(final_dict_all_info, indent=4))
+    return final_dict_all_info
