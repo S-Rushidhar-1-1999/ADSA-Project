@@ -3,7 +3,7 @@ from urllib.parse import unquote
 import uvicorn
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
 from pymongo import MongoClient
 from logging import basicConfig, INFO, FileHandler, StreamHandler, getLogger, ERROR
 from methods import algorithms
@@ -40,7 +40,7 @@ class DirectDownloadLinkException(Exception):
     pass
 
 
-rawhtml = """<html>
+rawhtml_one = """<html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -208,293 +208,9 @@ rawhtml = """<html>
             </div>
 
             <div class="content-wrapper">
+"""
 
-                <div class="col-12">
-                    <h2>Merge Sort</h2>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="product-card" data-name="POCO X3 Pro (Golden Bronze, 128 GB)">
-                        <div class="product-info">
-                            <div class="product-name">POCO X3 Pro (Golden Bronze, 128 GB)</div>
-                            <div class="price-info">
-                                <span class="price">₹18,999</span>
-                                <span class="original-price">₹22,999</span>
-                                <span class="discount">17% off</span>
-                            </div>
-                            <a href="https://www.flipkart.com/poco-x3-pro-golden-bronze-128-gb/p/itme90368cd4e44b?pid=MOBGP2G5P98U2V57" class="product-link" target="_blank">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
+rawhtml_two = """            </div>
 
             <div class="footer">
                 <p>Made with 💛 by <a href="https://telegram.me/Rushidhar1999" target="_blank">𝚁𝚞𝚜𝚑𝚒𝚍𝚊𝚛</a></p>
@@ -509,8 +225,8 @@ rawhtml = """<html>
 @app.get("/search")
 async def product_info(request: Request):
     query_params = str(request.url.query).split("q=")[1]
-    response_data = await algorithms(unquote(query_params))
-    return JSONResponse(content=response_data)
+    response_data, visualization = await algorithms(unquote(query_params))
+    return HTMLResponse(content=visualization)
 
 
 @app.get("/")
