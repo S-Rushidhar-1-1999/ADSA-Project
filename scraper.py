@@ -64,6 +64,7 @@ async def ext_page_source(
 async def flipkart(name_of_product):
     all_info = {}
     prices_list = []
+    product_all_links = []
     source_code = await ext_page_source(f"https://www.flipkart.com/search?q={name_of_product.replace(' ', '%20')}")
 
     soups = BeautifulSoup(source_code, "html.parser").find_all("div", {"class":"row"})
@@ -88,7 +89,14 @@ async def flipkart(name_of_product):
                 if int(present_price) not in all_info:
                     prices_list.append(int(present_price))
                     all_info[int(present_price)] = []
-                all_info[int(present_price)].append({"Product_Link": product_link,"product_info": product_info, "present_price": present_price, "original_price": original_price, "discount": discount})
+                if product_link not in product_all_links:
+                    product_all_links.append(product_link)
+                    all_info[int(present_price)].append({"Product_Link": product_link,"product_info": product_info, "present_price": present_price, "original_price": original_price, "discount": discount})
+                discount = None
+                present_price = None
+                original_price = None
+                present_price = None
+                original_price = None
         except: pass
 
     if not all_info and not prices_list:
@@ -110,6 +118,14 @@ async def flipkart(name_of_product):
                             if int(present_price) not in all_info:
                                 prices_list.append(int(present_price))
                                 all_info[int(present_price)] = []
-                            all_info[int(present_price)].append({"Product_Link": product_link,"product_info": product_info, "present_price": present_price, "original_price": original_price, "discount": discount})
+                            if product_link not in product_all_links:
+                                product_all_links.append(product_link)
+                                all_info[int(present_price)].append({"Product_Link": product_link,"product_info": product_info, "present_price": present_price, "original_price": original_price, "discount": discount})
+                            discount = None
+                            present_price = None
+                            original_price = None
+                            present_price = None
+                            original_price = None
+                            
                     except: pass
     return all_info, prices_list
