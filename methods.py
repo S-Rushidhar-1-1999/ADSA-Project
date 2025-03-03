@@ -9,12 +9,6 @@ def final_dict(final_dict_all_info, all_info, text, arr):
         final_dict_all_info[text][i] = all_info[i]
     return final_dict_all_info
 
-def final_dict(final_dict_all_info, all_info, text, arr):
-    final_dict_all_info[text] = {}
-    for i in arr:
-        final_dict_all_info[text][i] = all_info[i]
-    return final_dict_all_info
-
 def multi_way_merge_sort(final_dict_all_info, all_info, text, arr, k=3):
     """Multi-way merge sort implementation."""
     if len(arr) <= 1:
