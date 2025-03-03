@@ -145,6 +145,4 @@ async def algorithms(name_of_product):
     visualization_part = visualization_part.replace(text3, f'Time Taken for Heap Sort: {final_dict_all_info[text3]["Time Taken For Heap Sort in seconds"]} second(s)')
     visualization_part = visualization_part.replace(text4, f'Time Taken for Shell Sort: {final_dict_all_info[text4]["Time Taken For Shell Sort in seconds"]} second(s)')
 
-    visualization = rawhtml_one + visualization_part + rawhtml_two
-
-    return final_dict_all_info, visualization
+    return final_dict_all_info, visualization_part
