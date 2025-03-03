@@ -225,7 +225,8 @@ rawhtml_two = """            </div>
 @app.get("/search")
 async def product_info(request: Request):
     query_params = str(request.url.query).split("q=")[1]
-    response_data, visualization = await algorithms(unquote(query_params))
+    response_data, visualization_part = await algorithms(unquote(query_params))
+    visualization = rawhtml_one + visualization_part + rawhtml_two
     return HTMLResponse(content=visualization)
 
 
