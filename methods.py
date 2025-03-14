@@ -106,7 +106,7 @@ def shell_sort(final_dict_all_info, all_info, text, arr, visualization_list):
     return final_dict(final_dict_all_info, all_info, text, arr, visualization_list)
 
 
-async def algorithms(name_of_product):
+async def extract_data(name_of_product):
     #name_of_product = "pen"
     final_dict_all_info = {}
     visualization_list = []
