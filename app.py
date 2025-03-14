@@ -6,7 +6,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, HTMLResponse
 from pymongo import MongoClient
 from logging import basicConfig, INFO, FileHandler, StreamHandler, getLogger, ERROR
-from methods import algorithms
+from methods import extract_data
 
 if os.path.exists("log.txt"):
     with open("log.txt", "w"):
